@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="18dea76f-2be4-4a6d-8731-8863d54b1dd9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/sample/Main.java" afterPath="$PROJECT_DIR$/src/com/sample/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/sample/dao/ProductDao.java" afterPath="$PROJECT_DIR$/src/com/sample/dao/ProductDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/sample/dto/ComputedProduct.java" afterPath="$PROJECT_DIR$/src/com/sample/dto/ComputedProduct.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/sample/rules/AutomaticPricingRule.java" afterPath="$PROJECT_DIR$/src/com/sample/rules/AutomaticPricingRule.java" />
-    </list>
+    <list default="true" id="18dea76f-2be4-4a6d-8731-8863d54b1dd9" name="Default" comment="" />
     <ignored path="CartStrategyPatternDemo.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -85,7 +80,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AutomaticPricingRule.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AutomaticPricingRule.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/sample/rules/AutomaticPricingRule.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="487">
@@ -94,6 +89,22 @@
                 <element signature="imports" expanded="true" />
               </folding>
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="102">
+                <caret line="6" column="69" selection-start-line="6" selection-start-column="69" selection-end-line="6" selection-end-column="69" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+          <provider editor-type-id="MarkdownFxPreviewEditor">
+            <state />
           </provider>
         </entry>
       </file>
@@ -185,6 +196,7 @@
         <option value="$PROJECT_DIR$/src/com/sample/dto/ComputedProduct.java" />
         <option value="$PROJECT_DIR$/src/com/sample/Main.java" />
         <option value="$PROJECT_DIR$/src/com/sample/rules/AutomaticPricingRule.java" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -207,7 +219,7 @@
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="1" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
@@ -749,12 +761,12 @@
       <workItem from="1497236838913" duration="6631000" />
       <workItem from="1497246774389" duration="16000" />
       <workItem from="1497246854401" duration="19872000" />
-      <workItem from="1497329056753" duration="11298000" />
+      <workItem from="1497329056753" duration="11516000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40724000" />
+    <option name="totallyTimeSpent" value="40942000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1328,6 +1340,20 @@
             <element signature="imports" expanded="true" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="102">
+            <caret line="6" column="69" selection-start-line="6" selection-start-column="69" selection-end-line="6" selection-end-column="69" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownFxPreviewEditor">
+        <state />
       </provider>
     </entry>
   </component>
