@@ -18,6 +18,24 @@ public class Main {
     }
 
     public void execute(){
+        //scenario 1
+        try {
+            ShoppingCart shoppingCart = new ShoppingCart(PricingRule.DEFAULT_RULES);
+            shoppingCart.add(productDao.findByCode("ult_small"));
+            shoppingCart.add(productDao.findByCode("ult_small"));
+            shoppingCart.add(productDao.findByCode("ult_small"));
+            shoppingCart.add(productDao.findByCode("ult_large"));
+
+            ComputedShoppingCart computedShoppingCart = new ComputedShoppingCart(shoppingCart);
+
+            computedShoppingCart.compute();
+
+            System.out.println("Total for scenario 1 is: " + computedShoppingCart.getTotal().setScale(2, BigDecimal.ROUND_HALF_EVEN));
+        } catch (PromoNotApplicableException e){
+            System.out.println(e.getMessage());
+        }
+
+        //scenario 4
         try {
             ShoppingCart shoppingCart = new ShoppingCart(PricingRule.DEFAULT_RULES);
             shoppingCart.add(productDao.findByCode("ult_small"));
@@ -27,7 +45,7 @@ public class Main {
 
             computedShoppingCart.compute();
 
-            System.out.println("Total is: " + computedShoppingCart.getTotal().setScale(2, BigDecimal.ROUND_HALF_EVEN));
+            System.out.println("Total for scenario 4 is: " + computedShoppingCart.getTotal().setScale(2, BigDecimal.ROUND_HALF_EVEN));
         } catch (PromoNotApplicableException e){
             System.out.println(e.getMessage());
         }

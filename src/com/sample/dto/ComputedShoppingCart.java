@@ -60,4 +60,11 @@ public class ComputedShoppingCart {
         }
         return total;
     }
+
+    public void addAppliedPromo(PromoCode promo){
+        if(promo == null){
+            throw new IllegalArgumentException("promo code cannot be null");
+        }
+        appliedPromoCodes.add(promo);
+    }
 }

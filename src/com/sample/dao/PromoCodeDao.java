@@ -4,6 +4,7 @@ import com.sample.model.*;
 
 import java.math.BigDecimal;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class PromoCodeDao {
 
@@ -20,7 +21,7 @@ public class PromoCodeDao {
     private void initializePromos(){
         promos.add(
                 PromoCode.Builder.newInstance("Three_for_Two", "3 for 2 deal")
-                    .discount(new BigDecimal("33.33"))
+                    .discount(new BigDecimal("0.3333"))
                     .duration(new PromoCodeEffectDuration(1, PromoCodeEffectDuration.UNIT.MONTH))
                     .productsThatShouldBeInCart(
                             createProductMap(
@@ -30,7 +31,9 @@ public class PromoCodeDao {
                     .usage(PromoCodeUsage.MULTIPLE)
                     .eligibility(PromoCodeEligibility.ONE_PRODUCT)
                     .eligibleProducts(
-                            productDao.findByCode("ult_small")
+                            createProductMap(
+                                    productDao.findByCode("ult_small"), new Integer(3)
+                            )
                     )
                 .build()
         );
@@ -49,7 +52,9 @@ public class PromoCodeDao {
                         .usage(PromoCodeUsage.MULTIPLE)
                         .eligibility(PromoCodeEligibility.ONE_PRODUCT)
                         .eligibleProducts(
-                                productDao.findByCode("ult_large")
+                                createProductMap(
+                                    productDao.findByCode("ult_large"), new Integer(0) //zero means apply to all in the cart
+                                )
                         )
                         .build()
         );
@@ -63,13 +68,15 @@ public class PromoCodeDao {
                         )
                         .productsThatShouldBeInCart(
                                 createProductMap(
-                                        productDao.findByCode("ult_medium"), new Integer(3)
+                                        productDao.findByCode("ult_medium"), new Integer(1)
                                 )
                         )
                         .usage(PromoCodeUsage.MULTIPLE)
                         .eligibility(PromoCodeEligibility.ONE_PRODUCT)
                         .eligibleProducts(
-                                productDao.findByCode("ult_medium")
+                                createProductMap(
+                                    productDao.findByCode("ult_medium"), new Integer(1)
+                                )
                         )
                         .build()
         );
@@ -109,5 +116,10 @@ public class PromoCodeDao {
         }
 
         return promos.stream().filter(promo -> promo.getCode().equalsIgnoreCase(code)).findFirst();
+    }
+
+    public Set<PromoCode> findAllAutomaticPromoCodes(){
+        return promos.stream().filter(p -> p.getTrigger() == PromoCodeTrigger.AUTOMATIC)
+                .collect(Collectors.toSet());
     }
 }

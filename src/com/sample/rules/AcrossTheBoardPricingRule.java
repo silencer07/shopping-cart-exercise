@@ -9,7 +9,6 @@ import com.sample.model.PromoCodeEligibility;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Map;
 
 public class AcrossTheBoardPricingRule extends AbstractPricingRule {
 
@@ -21,7 +20,7 @@ public class AcrossTheBoardPricingRule extends AbstractPricingRule {
 
         ShoppingCart orig = cart.getOriginalCart();
         for(PromoCode promo: orig.getPromoCodes()){
-            boolean applicable = isPromoCodeApplicable(promo, orig.getDate(), dateOfComputation);
+            boolean applicable = isPromoCodeApplicable(promo, cart, dateOfComputation);
             if(applicable && promo.getEligibility() == PromoCodeEligibility.ACROSS_THE_BOARD && !cart.isPromoCodeApplied(promo)){
                 for(ComputedProduct computedProduct: cart.getComputedProducts().keySet()){
                     BigDecimal price = computedProduct.getPrice();

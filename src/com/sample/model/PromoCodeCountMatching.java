@@ -1,7 +1,7 @@
 package com.sample.model;
 
 public enum PromoCodeCountMatching {
-    EQUALS,
+    EQUALS, //will not implement since not part of requirements yet. TODO
     GREATER_THAN,
     EQUALS_OR_GREATER_THAN,
     LESS_THAN, //will not implement since not part of requirements yet. TODO

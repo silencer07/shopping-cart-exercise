@@ -2,7 +2,9 @@ package com.sample.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class PromoCode {
     private final String code;
@@ -12,7 +14,7 @@ public class PromoCode {
     private PromoCodeApplicability applicability = PromoCodeApplicability.CAN_BE_APPLIED_WITH_OTHER_PROMOS;
 
     private PromoCodeEligibility eligibility = PromoCodeEligibility.ACROSS_THE_BOARD;
-    private Set<Product> eligibleProducts = new HashSet<>();
+    private Map<Product, Integer> eligibleProducts = new HashMap<>();
 
     private BigDecimal discount;
     private PromoCodeDiscountUnit discountUnit = PromoCodeDiscountUnit.PERCENTAGE;
@@ -50,7 +52,7 @@ public class PromoCode {
         duration = builder.duration;
         trigger = builder.trigger;
         usage = builder.usage;
-        eligibleProducts.addAll(builder.eligibleProducts);
+        eligibleProducts.putAll(builder.eligibleProducts);
     }
 
     @Override
@@ -157,12 +159,12 @@ public class PromoCode {
         this.usage = usage;
     }
 
-    public Set<Product> getEligibleProducts() {
+    public Map<Product, Integer> getEligibleProducts() {
         return eligibleProducts;
     }
 
-    public void setEligibleProducts(Collection<Product> eligibleProducts) {
-        this.eligibleProducts.addAll(eligibleProducts);
+    public void setEligibleProducts(Map<Product, Integer> eligibleProducts) {
+        this.eligibleProducts.putAll(eligibleProducts);
     }
 
     public PromoCodeDiscountUnit getDiscountUnit() {
@@ -180,14 +182,14 @@ public class PromoCode {
         private PromoCodeApplicability applicability = PromoCodeApplicability.CAN_BE_APPLIED_WITH_OTHER_PROMOS;
         private PromoCodeEligibility eligibility = PromoCodeEligibility.ACROSS_THE_BOARD;
         private BigDecimal discount;
-        private PromoCodeDiscountUnit discountUnit = PromoCodeDiscountUnit.PERCENTAGE;;
+        private PromoCodeDiscountUnit discountUnit = PromoCodeDiscountUnit.PERCENTAGE;
         private Map<Product, Integer> freebies;
         private Map<Product, Integer> productsThatShouldBeInCart = new HashMap<>();
         private PromoCodeCountMatching countMatching = PromoCodeCountMatching.EQUALS_OR_GREATER_THAN;
         private PromoCodeEffectDuration duration;
         private PromoCodeTrigger trigger = PromoCodeTrigger.AUTOMATIC;
-        private PromoCodeUsage usage = PromoCodeUsage.ONCE;;
-        private Set<Product> eligibleProducts = new HashSet<>();
+        private PromoCodeUsage usage = PromoCodeUsage.ONCE;
+        private Map<Product, Integer> eligibleProducts = new HashMap<>();
 
         public Builder(String code, String name) {
             this.code = code;
@@ -253,8 +255,8 @@ public class PromoCode {
             return this;
         }
 
-        public Builder eligibleProducts(Product... products){
-            eligibleProducts.addAll(Arrays.asList(products));
+        public Builder eligibleProducts(Map<Product, Integer> products){
+            eligibleProducts.putAll(products);
             return this;
         }
 

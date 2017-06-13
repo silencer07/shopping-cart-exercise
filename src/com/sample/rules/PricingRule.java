@@ -12,6 +12,7 @@ public interface PricingRule {
     void compute(ComputedShoppingCart cart, LocalDate dateOfComputation);
 
     List<PricingRule> DEFAULT_RULES = new ArrayList<>(Arrays.asList(
-            new AcrossTheBoardPricingRule()
+            new AcrossTheBoardPricingRule(),
+            new AutomaticPricingRule()
     ));
 }

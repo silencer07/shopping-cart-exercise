@@ -63,7 +63,7 @@ public class ShoppingCart {
         Map<Product, Integer> products = promo.getProductsThatShouldBeInCart();
         for(Map.Entry<Product, Integer> entry : products.entrySet()){
             int count = cart.getOrDefault(entry.getKey(), 0);
-            if(count == 0){
+            if(count < entry.getValue()){
                 throw new PromoNotApplicableException(
                         String.format("Cart must contain %d of %s", entry.getKey(), entry.getValue())
                 );
