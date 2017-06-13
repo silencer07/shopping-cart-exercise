@@ -12,7 +12,7 @@ public class ProductDao {
         add(new Product("ult_small", "Unlimited 1GB", new BigDecimal("24.90")));
         add(new Product("ult_medium", "Unlimited 2GB", new BigDecimal("29.9")));
         add(new Product("ult_large", "Unlimited 5GB", new BigDecimal("44.90")));
-        add(new Product("1gb", "Unlimited 5GB", new BigDecimal("9.90")));
+        add(new Product("1gb", "1GB Data-pack", new BigDecimal("9.90")));
     }
 
     private static void add(Product p){

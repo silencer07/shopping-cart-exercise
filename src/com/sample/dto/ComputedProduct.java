@@ -49,4 +49,9 @@ public class ComputedProduct {
         result = 31 * result + getPrice().hashCode();
         return result;
     }
+
+    @Override
+    public String toString() {
+        return product.getCode() + " - " + product.getName();
+    }
 }
