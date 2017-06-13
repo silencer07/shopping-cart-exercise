@@ -35,6 +35,24 @@ public class Main {
             System.out.println(e.getMessage());
         }
 
+        //scenario 1b
+        try {
+            ShoppingCart shoppingCart = new ShoppingCart(PricingRule.DEFAULT_RULES);
+            shoppingCart.add(productDao.findByCode("ult_small"));
+            shoppingCart.add(productDao.findByCode("ult_small"));
+            shoppingCart.add(productDao.findByCode("ult_small"));
+            shoppingCart.add(productDao.findByCode("ult_small"));//this one should not be discounted
+            shoppingCart.add(productDao.findByCode("ult_large"));
+
+            ComputedShoppingCart computedShoppingCart = new ComputedShoppingCart(shoppingCart);
+
+            computedShoppingCart.compute();
+
+            System.out.println("Total for scenario 1b is: " + computedShoppingCart.getTotal().setScale(2, BigDecimal.ROUND_HALF_EVEN));
+        } catch (PromoNotApplicableException e){
+            System.out.println(e.getMessage());
+        }
+
         //scenario 2
         try {
             ShoppingCart shoppingCart = new ShoppingCart(PricingRule.DEFAULT_RULES);

@@ -47,21 +47,22 @@ public class AutomaticPricingRule extends AbstractPricingRule {
                                     default:
                                         throw new UnsupportedOperationException(promo.getDiscountUnit() + " type of unit implementation not defined");
                                 }
+                                finalPrice = finalPrice.setScale(2, BigDecimal.ROUND_HALF_UP);
 
                                 int eligibleCount = promo.getEligibleProducts().get(computedProduct.getProduct());
                                 int productCount = cart.getComputedProducts().get(computedProduct);
-                                if(eligibleCount == 0 || eligibleCount >= productCount){
+                                if(eligibleCount == 0 || eligibleCount == productCount){
                                     computedProduct.setPrice(finalPrice);
                                 } else {
                                     ComputedProduct newComputedProduct = new ComputedProduct(computedProduct.getProduct());
-                                    computedProduct.setPrice(finalPrice);
+                                    newComputedProduct.setPrice(finalPrice);
                                     switch(promo.getUsage()){
                                         case MULTIPLE:
 
                                             if(productCount % eligibleCount == 0){
                                                 computedProduct.setPrice(finalPrice);
                                             } else {
-                                                int toBeDiscounted = productCount / eligibleCount;
+                                                int toBeDiscounted = (productCount / eligibleCount) * eligibleCount;
                                                 newComputedProduct.setPrice(finalPrice);
                                                 //add a new computed product with discount applied
                                                 computedProductsToAdd.put(newComputedProduct, toBeDiscounted);
